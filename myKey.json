@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "planar-cipher-284118",
+  "private_key_id": "ad6fe57d8195bfe90c8c062ca2a877f664251332",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQD4uWs7PCFidft9\n138iVTM8csfL1TIH3kXpIA+yW0CcD4NfonELCgb7Znl+W39IqDJm77gsJFPSbSvR\nWopJ6h//Iu+iTlAC/vWwIloPiFTb+u/azNCA3EmsGJOUeQq8OV+grgfkS8E0+LyC\nXWVnhYgo9+d2aL/J51dH2RJIjgG9F+TUcHM5HWMxsvFYt4/UH6zbcOCd/9efK+L+\nkPFN1m0fFwmeEtCTCGsJImHEIeih1EprPqK+NOe5Zrz+vXuDXNE0PrdXlQW7EGuP\n58KjtBHOpDiaJ0GXIb2T8jYCfJ06CGzsCi1bT6yB2aJvjJ+RDzTlMCczd3pawjr8\nS/wDn2vrAgMBAAECggEAEaVJ88Jg1fTr2jIzLVLhFy1HenEOIxvEVvU01+D8dPXu\nypaiMXfNJgHPpcTFA3kXVlE0fkE3hyrCnJAxVmwbSAUI/jlTGNtQv+W4APkZmB+1\n645zTmkSevilY7ewqMjjPWmLWsl7FBB/gzowCwegsNNhovdsf9z/RrQiRW55thn7\njqJZYUq5IzY17ZVw0ujDMaV/Z2oUpbSpgMd8dRnov2epL48cukloS2W5nOuDTa0N\nERnrrk/obsgfGNwwg62BBvWOW8cXqJaCxSQcbA6XSyMrl4Vk7hGps1yhcpq/EnU5\ndeNIsrsqBxauueTg20Vew87DGF9L6qXgzoW9x/5eGQKBgQD8t541i4aT+EJZmHGw\ncFuc4ma3EBRi3ac7o8TMK91A4yA2EQGoMjCn3V569+/gVJu+0RuRrA8d34f4aC4O\nYQsLKWVobT35hLifVKfrbM9ZtQXOhfZEnOqMxaccADDNER4c3pWKiVgYX/tO9HS9\nz65qSBBY2JJBqHmsgIln8FIMkwKBgQD79IXROvL7t1eWhgbqvYImeD6amMRxYat1\nlX3dW4uq2q3B1lXGGjGdhVilDGNahduXWVUZs9NSuA+AnjKhT3ektK0F1TMm/Sd2\nk+bqctM+9Mku4RG3jJYuaMzVK+IPr/zmW/wbCsvY1Ta8D/8XWQcKzbaCgMFAaGeV\nz9VkYXqSSQKBgQCjMK8pRIAS7S1rTdWcafG+zTQm4mtHrHphOM/MSEcHr6MNRs4b\nHs3smDZ6kcCEzB4GimGTH9hjIgVbk2qqPmAzRPgHBwQOLHZL7Q7CJ/F9rDejtT3h\n8LJFVR0kJ7tbsMIRQmqumyIYG2LdCV6Zc5Ldbsufk7peS7zGd/pC9B0HoQKBgQCy\nkWsGDzGHFToOhI8Cb61+dlpoVz1i3kYW4AyEhg1G2hWr+6xu6sGfUpKw50bDMXug\nmL+np7tuNOVH0tcvXJL/OM4oBCJsz57Ye5p9L0RoqjSr9PgJjqoh2kTSEHf3hlNH\nMIpM4Cn5U6OnRe8VLRPApGtlsrtEWrqPgu1KZ4vngQKBgDCvbzX7PiCwxwitGz0B\nnp4Oku+rwSAaA1wQN5sbI4NcpnVzYBJzE5TNjTCupg5383mVoZnsYoA8EtBHvKUi\nr0YSyLE9sToxv6Zie6MDBJfE3r2KGhEAC0XuxsuYJgsPsDKcslB4BxibpKeK2ssA\nxebru887TIlSsjJ9FnXIfpJ4\n-----END PRIVATE KEY-----\n",
+  "client_email": "nameservice@planar-cipher-284118.iam.gserviceaccount.com",
+  "client_id": "107720042648922765738",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nameservice%40planar-cipher-284118.iam.gserviceaccount.com"
+}
