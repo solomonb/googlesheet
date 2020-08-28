@@ -16,67 +16,43 @@
 		$service = new Google_Service_Sheets($client);	  
 
 		$spreadsheetId = '1rcRJPIWhbjiqqywRGeQ7So5bv2fGOV6t6afvmhGYqXc';
-		$spreadsheetName = "Лист1!A2:A1000";
-		$response = $service->spreadsheets_values->get($spreadsheetId, $spreadsheetName);
-		$values = $response->getValues();
-		//Создадим в массив все id таблицы New table в гугл таблице
-		$arrayId[]="";
-		if (empty($values)) {
-			print "No data found.";
-		} else {
-			foreach ($values as $row) {				
-				$arrayId[] = $row[0];	
-				print_r($arrayId);
-			}
-		}		
+		$spreadsheetName = "Лист1!A2:D1000";
+		
+		$requestBody = new Google_Service_Sheets_ClearValuesRequest();
+		$response = $service->spreadsheets_values->clear($spreadsheetId, $spreadsheetName, $requestBody);
+
 	//Подключение к БД test2
+	
 	$host = 'googlesheetapi'; 
 	$user = 'root'; 
 	$password = ''; 
 	$db_name = 'test2';
 		
-	$link = mysqli_connect($host, $user, $password, $db_name) or die(mysqli_error($link));	
-	mysqli_query($link, "SET NAMES 'utf8'");
+	$link = mysqli_connect($host, $user, $password, $db_name);	
 	
-	$query = "SELECT *FROM users";		
-	$result = mysqli_query($link, $query) or die(mysqli_error($link));
-	for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
-	//Также создадим массив из id таблицы users БД test2
-		$valuesID[]="";
-		foreach ($data as $elem) {			
-			$valuesID[]= $elem['id'];			
+	
+		if (mysqli_connect_errno()) {
+			printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+			exit();
+		}
+			
+		if($stmt = mysqli_prepare($link, "SELECT name, surname, age FROM users WHERE age>18")){						
+		
+			mysqli_stmt_execute($stmt);
+			
+			mysqli_stmt_bind_result($stmt, $name, $surname, $age);
+			$values=[];
+			while(mysqli_stmt_fetch($stmt)){				
+				$values[]=[$name, $surname, $age];				
 			}
-	//Сравним данные таблиц из БД и гугл таблиц по созданным ранее массивам id	
-	$diff = array_diff($valuesID, $arrayId);	
+			mysqli_stmt_close($stmt);			
+		}
+		
+		mysqli_close($link);		
+		
 	
-	foreach ($diff as $elem) {			
-			$id= $elem;	
-			//По отличающимся id выгружаем данные из таблицы users (БД) в таблицу New table (гугл таблицы)
-				$query = "SELECT *FROM users WHERE age>18 and id=$id";		
-				$result = mysqli_query($link, $query) or die(mysqli_error($link));
-				for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
-					$values=[];
-					foreach ($data as $elem) {			
-						$values[]= [$elem['id'],$elem['name'],$elem['surname'],$elem['age']];
-						}			
-					
-							$googleAccount = "myKey.json";
-							putenv('GOOGLE_APPLICATION_CREDENTIALS=' .$googleAccount);
-								
-							$client = new Google_Client();
-								
-							$client->useApplicationDefaultCredentials();	
-
-							$client->setScopes('https://www.googleapis.com/auth/spreadsheets');
-
-							$service = new Google_Service_Sheets($client);	  
-
-							$spreadsheetId = '1rcRJPIWhbjiqqywRGeQ7So5bv2fGOV6t6afvmhGYqXc';
-							$spreadsheetName = "Лист1";
-							
-							$body = new Google_Service_Sheets_ValueRange(["values"=>$values]);
-							$options = ["valueInputOption" => "USER_ENTERED"];
-							$service->spreadsheets_values->append($spreadsheetId,$spreadsheetName,$body,$options);	
-	}
+	$body = new Google_Service_Sheets_ValueRange(["values"=>$values]);
+	$options = ["valueInputOption" => "USER_ENTERED"];
+	$service->spreadsheets_values->append($spreadsheetId,$spreadsheetName,$body,$options);	
 	
 	echo 'Ваши данные успешно занесены в гугл таблицу "New table" ';

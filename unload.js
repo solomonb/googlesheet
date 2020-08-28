@@ -11,8 +11,7 @@ let elem = document.getElementById('unload');
 			text => {
 				alert(text);
 			}
-		).catch(error => console.error(error));
-			
+		).catch(error => console.error(error));			
 		
 	 };	
   
