@@ -18,8 +18,8 @@
 		$spreadsheetId = '1rcRJPIWhbjiqqywRGeQ7So5bv2fGOV6t6afvmhGYqXc';
 		$spreadsheetName = "Лист1!A2:D1000";
 		
-		$requestBody = new Google_Service_Sheets_ClearValuesRequest();
-		$response = $service->spreadsheets_values->clear($spreadsheetId, $spreadsheetName, $requestBody);
+		$body = new Google_Service_Sheets_ClearValuesRequest();
+		$response = $service->spreadsheets_values->clear($spreadsheetId, $spreadsheetName, $body);
 
 	//Подключение к БД test2
 	
